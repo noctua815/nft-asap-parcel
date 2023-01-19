@@ -5,14 +5,17 @@
   "scripts": {
     "start": "parcel src/index.html --open",
     "clean": "rm -rf dist/*",
+    "prebuild": "shx rm -rf dist/*",
     "build:parcel": "parcel build src/index.html --no-content-hash --no-source-maps --public-url ./",
-    "build": "npm run clean && npm run build:parcel"
+    "build": "npm run clean && npm run build:parcel",
+    "push-gh-pages": "push-dir --dir=dist --branch=gh-pages --cleanup --verbose"
   },
   "author": "",
   "license": "ISC",
   "devDependencies": {
     "@parcel/transformer-sass": "^2.7.0",
-    "parcel": "^2.6.2"
+    "parcel": "^2.6.2",
+    "shx": "^0.3.4"
   },
   "dependencies": {
     "gsap": "^3.11.3"
