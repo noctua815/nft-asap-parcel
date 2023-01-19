@@ -1,0 +1,60 @@
+// BOLD
+@font-face {
+  font-family: 'Gilroy-Bold';
+  src: url("../fonts/Gilroy-Bold.woff2") format('woff2'), url("../fonts/Gilroy-Bold.woff") format('woff');
+  font-style: normal;
+  font-weight: 400;
+  font-display: block;
+}
+
+@mixin GilroyBoldFont {
+  font-family: 'Gilroy-Bold', sans-serif;
+  font-style: normal;
+  font-weight: 400;
+}
+
+// SEMIBOLD
+@font-face {
+  font-family: 'Gilroy-Semibold';
+  src: url("../fonts/Gilroy-Semibold.woff2") format('woff2'), url("../fonts/Gilroy-Semibold.woff") format('woff');
+  font-style: normal;
+  font-weight: 600;
+  font-display: block;
+}
+
+@mixin GilroySemiboldFont {
+  font-family: 'Gilroy-Semibold', sans-serif;
+  font-style: normal;
+  font-weight: 600;
+}
+
+// SEMIBOLD Italic
+@font-face {
+  font-family: 'Gilroy-SemiboldItalic';
+  src: url("../fonts/Gilroy-SemiboldItalic.woff2") format('woff2'), url("../fonts/Gilroy-SemiboldItalic.woff") format('woff');
+  font-style: normal;
+  font-weight: 600;
+  font-display: block;
+}
+
+@mixin GilroySemiboldItalicFont {
+  font-family: 'Gilroy-SemiboldItalic', sans-serif;
+  font-style: normal;
+  font-weight: 600;
+}
+
+// MEDIUM
+
+@font-face {
+  font-family: 'Gilroy-Medium';
+  src: url("../fonts/Gilroy-Medium.woff2") format('woff2'), url("../fonts/Gilroy-Medium.woff") format('woff');
+  font-style: normal;
+  font-weight: 700;
+  font-display: block;
+}
+
+@mixin GilroyMediumFont {
+  font-family: 'Gilroy-Medium', sans-serif;
+  font-style: normal;
+  font-weight: 700;
+}

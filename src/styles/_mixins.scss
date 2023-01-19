@@ -1,0 +1,53 @@
+$basefontSize: 16;
+
+@function rem($val) {
+  @return calc($val / $basefontSize) + rem;
+}
+
+@mixin placeholder {
+  &::-webkit-input-placeholder {@content}
+  &:-moz-placeholder           {@content}
+  &::-moz-placeholder          {@content}
+  &:-ms-input-placeholder      {@content}
+}
+
+@mixin white-block {
+  border-radius: $base-border-radius;
+  background-color: $color-light;
+  transition: box-shadow $transition-time ease;
+
+  &:hover {
+    box-shadow: 0 20px 40px rgba(13,11,33, 0.162342);
+  }
+}
+
+@mixin absolut-position {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+
+@mixin scrollbars($size, $foreground-color, $background-color: mix($foreground-color, white,  50%)) {
+  // For Google Chrome
+  &::-webkit-scrollbar {
+    width:  $size;
+    height: $size;
+  }
+
+  &::-webkit-scrollbar-thumb {
+    background: $foreground-color;
+    border-radius: 4px;
+  }
+
+  &::-webkit-scrollbar-track {
+    background: $background-color;
+  }
+
+  // For Internet Explorer
+  body {
+    scrollbar-face-color: $foreground-color;
+    scrollbar-track-color: $background-color;
+  }
+}

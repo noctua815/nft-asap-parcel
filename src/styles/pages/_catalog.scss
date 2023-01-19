@@ -1,0 +1,252 @@
+.page {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  width: 100vw;
+  padding: 32px 0 0;
+  overflow: hidden;
+  margin: 0 auto;
+  @media (max-width: $max-layout) {
+    justify-content: flex-start;
+  }
+
+  &__navbar {
+    position: absolute;
+    top: 32px;
+    left: 0;
+    width: 200px;
+    padding-left: 16px;
+    flex-shrink: 0;
+
+    @media (max-width: $tablet) {
+      display: none;
+    }
+
+    @media (max-width: $max-layout) {
+      position: relative;
+      top: initial;
+    }
+  }
+
+  &__content {
+    width: 100%;
+    max-width: 1296px;
+    padding-top: 10px;
+    padding-left: 40px;
+    padding-right: 24px;
+    overflow: hidden;
+
+    @media (max-width: $tablet) {
+      padding: 10px 40px 0;
+    }
+
+    @media (max-width: $big-phone) {
+      padding: 10px 16px 0;
+    }
+  }
+}
+
+.page + .bg-wrapper {
+  margin-top: 120px;
+}
+
+.navbar-item {
+  display: flex;
+  align-items: center;
+  padding: 12px 13px;
+  border-radius: $base-border-radius;
+  cursor: pointer;
+  user-select: none;
+  transition: background-color 0.3s ease;
+
+  &:hover:not(.navbar-item--active) {
+    background: rgba($color-light, 0.3);
+  }
+
+  &:active:not(.navbar-item--active) {
+    opacity: 0.8;
+  }
+
+  &--active {
+    background: $color-light;
+
+    .navbar-item__text {
+      color: $color-grey;
+    }
+
+    .navbar-item__icon svg {
+      fill: $color-grey;
+    }
+  }
+
+  &__icon {
+    width: 24px;
+    height: 24px;
+    margin-right: 16px;
+
+    svg {
+      fill: $color-navbar-icon;
+    }
+  }
+
+  &__text {
+    padding-top: 3px;
+    @include GilroySemiboldFont;
+    font-size: $small-font-size;
+    line-height: 1;
+    color: $color-light-grey;
+  }
+}
+
+.templates-list {
+  &__head {
+    display: flex;
+    gap: 40px;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: rem(24);
+  }
+
+  & + & {
+    margin-top: rem(80);
+  }
+}
+
+.templates-list + .bg-wrapper {
+  margin-top: rem(120);
+}
+
+.slider {
+  position: relative;
+  height: 250px;
+  margin-bottom: -10px;
+  margin-left: -10px;
+  margin-right: -10px;
+  padding: 0 10px;
+  overflow: hidden;
+
+  @media (max-width: $big-phone) {
+    height: 220px;
+    margin-left: 0;
+    margin-right: 0;
+    padding: 0;
+  }
+
+  &__scroll {
+    width: 100%;
+    height: calc(100% + 10px);
+    padding-bottom: 10px;
+    overflow-x: auto;
+
+    & > div {
+      scroll-snap-align: start;
+    }
+
+    @include scrollbars(10px, #dfdfdf);
+  }
+
+  &__wr {
+    height: 100%;
+    display: flex;
+    gap: 24px;
+    transition: transform 0.3s ease;
+    will-change: transform;
+  }
+
+  &__fader {
+    position: absolute;
+    z-index: 1;
+    top: 0;
+    height: 100%;
+    width: rem(60);
+    transition: all $transition-time ease;
+
+    &--hidden {
+      opacity: 0;
+      visibility: hidden;
+    }
+
+    &--left {
+      left: 10px;
+      background: linear-gradient(to left, rgba($color-bg, 0), rgba($color-bg, 1));
+
+      @media (max-width: $big-phone) {
+        left: 0;
+      }
+    }
+
+    &--right {
+      right: 10px;
+      background: linear-gradient(to right, rgba($color-bg, 0), rgba($color-bg, 1));
+
+      @media (max-width: $big-phone) {
+        right: 0;
+      }
+    }
+  }
+
+  &__btn {
+    position: absolute;
+    z-index: 2;
+    width: rem(48);
+    height: rem(48);
+    top: calc(50% - 5px);
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.12);
+    background-color: $color-light;
+    border-radius: 50%;
+    cursor: pointer;
+    background-size: 24px 24px;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-image: url('../images/svg/arrow-small-right.svg');
+    transition: all $transition-time ease;
+
+    &--hidden {
+      opacity: 0;
+      visibility: hidden;
+    }
+
+    &--left {
+      left: 18px;
+      transform: rotate(180deg) translateY(50%);
+
+      &:hover {
+        left: 10px;
+      }
+
+      &:active {
+        transform: rotate(180deg) translateY(48%);
+      }
+    }
+
+    &--right {
+      right: 18px;
+      transform: translateY(-50%);
+
+      &:hover {
+        right: 10px;
+      }
+
+      &:active {
+        transform: translateY(-48%);
+      }
+    }
+  }
+}
+
+.slide {
+  flex: 1 0 auto;
+  height: 100%;
+  border-radius: $base-border-radius;
+  overflow: hidden;
+
+  &__img {
+    height: 100%;
+    width: auto;
+  }
+
+  img {
+    display: block;
+    height: inherit;
+  }
+}

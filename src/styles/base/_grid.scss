@@ -1,0 +1,30 @@
+.wrapper {
+  width: 100%;
+  max-width: $layout-width;
+  margin: 0 auto;
+  padding: 0 40px;
+
+  @media (max-width: $big-phone) {
+    padding: 0 16px;
+  }
+}
+
+.row {
+  display: flex;
+  gap: 32px;
+
+  @media (max-width: $tablet) {
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+}
+
+.col {
+  &--2 {
+    width: 50%;
+  }
+
+  &-4 {
+    width: 25%;
+  }
+}

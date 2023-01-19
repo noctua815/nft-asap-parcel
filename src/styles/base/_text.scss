@@ -1,0 +1,57 @@
+h1 {
+  @include GilroyBoldFont;
+}
+
+h2 {
+  @include GilroyBoldFont;
+  font-size: $h2-font-size;
+  line-height: $h2-line-height;
+  letter-spacing: $h2-letter-spacing;
+}
+
+h3 {
+  margin-bottom: rem(20);
+  @include GilroyBoldFont;
+  font-size: $h3-font-size;
+  line-height: $h3-line-height;
+  letter-spacing: $h3-letter-spacing;
+}
+
+h4 {
+  @include GilroyBoldFont;
+  font-size: $h4-font-size;
+  line-height: $h4-line-height;
+}
+
+.text-violet-color {
+  color: $color-violet;
+}
+
+.link {
+  font-size: $base-font-size;
+  line-height: $base-line-height;
+  color: $color-blue;
+  text-decoration: none;
+  transition: opacity $transition-time ease;
+
+  &:hover {
+    opacity: 0.7;
+  }
+
+  &:active {
+    opacity: 0.55;
+  }
+
+  &--white {
+    color: $color-light;
+  }
+
+  &--black {
+    color: $senti-color-dark;
+  }
+}
+
+p {
+  font-size: $base-font-size;
+  line-height: $base-line-height;
+}

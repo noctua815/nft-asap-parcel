@@ -1,0 +1,467 @@
+.hero {
+  padding-top: rem(245);
+  margin-bottom: rem(252);
+
+  @media (max-width: $tablet) {
+    overflow: hidden;
+  }
+
+  @media (max-width: $big-phone) {
+    padding-top: rem(200);
+    margin-bottom: rem(150);
+  }
+
+  &__title {
+    max-width: rem(900);
+    margin: 0 auto rem(47);
+  }
+}
+
+.hero-title {
+  position: relative;
+  @include GilroySemiboldFont;
+  text-align: center;
+  font-size: $h1-font-size;
+  letter-spacing: $h1-letter-spacing;
+  line-height: 1.12;
+  color: $color-grey;
+
+  @media (max-width: $tablet) {
+    font-size: rem(96);
+  }
+
+  @media (max-width: $big-phone) {
+    font-size: rem(80);
+  }
+
+  &__hidden {
+    visibility: hidden;
+    opacity: 0;
+    font-size: 0;
+  }
+
+  &__wr {
+    position: relative;
+    z-index: 1;
+    display: grid;
+    grid-template-columns: 50% 50%;
+    grid-template-rows: auto auto;
+    white-space: nowrap;
+
+    @media (max-width: $tablet) {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+  }
+
+  &__second {
+    @media (max-width: $tablet) {
+      padding: 0 20px;
+    }
+  }
+
+  &__third {
+    grid-column: span 2;
+  }
+}
+
+.accent-word {
+  position: relative;
+
+  &__word {
+    position: relative;
+    width: rem(450);
+    height: rem(114);
+    z-index: 1;
+    @include GilroySemiboldItalicFont;
+    font-size: rem(102);
+    color: $color-violet;
+
+    @media (max-width: $tablet) {
+      font-size: rem(96);
+    }
+
+    @media (max-width: $big-phone) {
+      font-size: rem(76);
+      width: rem(350);
+      height: rem(100);
+    }
+  }
+
+  &__bg {
+    @include absolut-position;
+
+    &-brush {
+      position: absolute;
+      top: -21%;
+      width: 104%;
+      height: 140%;
+      background: url('../images/svg/hero/brush.svg') no-repeat center center/ contain;
+    }
+
+    &-oval {
+      position: absolute;
+      top: -120%;
+      left: -22%;
+      width: 147%;
+      height: 354%;
+      background: url('../images/svg/hero/oval.svg') no-repeat center center/ contain;
+    }
+  }
+}
+
+.anim-word {
+  position: absolute;
+  left: 0;
+  top: 0;
+  opacity: 0;
+  width: 100%;
+  transform: translateY(15px);
+  transition-duration: 0.4s;
+  transition-property: all;
+
+  &--active {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  &--hide {
+    opacity: 0;
+    transform: translateY(-15px);
+    transition-timing-function: cubic-bezier(0.22, 1, 0.36, 1);
+  }
+
+  &--show {
+    opacity: 1;
+    transform: translateY(0);
+    transition-timing-function: cubic-bezier(0.5, 1, 0.89, 1);
+  }
+}
+
+.hero-bg {
+  @include absolut-position;
+  z-index: 1;
+
+  &__star-1 {
+    position: absolute;
+    top: -19%;
+    right: -17.5%;
+    width: 94px;
+    height: 94px;
+    background: url('../images/svg/hero/star-1.svg') no-repeat center center/contain;
+
+    @media (max-width: $tablet) {
+      right: -10%;
+      width: 80px;
+      height: 80px;
+    }
+
+    @media (max-width: $big-phone) {
+      right: -5%;
+      width: 70px;
+      height: 70px;
+    }
+  }
+
+  &__star-2 {
+    position: absolute;
+    bottom: 19%;
+    left: -6%;
+    width: 48px;
+    height: 48px;
+    background: url('../images/svg/hero/star-2.svg') no-repeat center center/contain;
+
+    @media (max-width: $big-phone) {
+      left: 0;
+    }
+  }
+}
+
+.nfts-list {
+  width: 100%;
+  margin-bottom: rem(72);
+
+  &--catalog {
+    margin-bottom: rem(80);
+    .nfts-list__wr {
+      gap: 24px;
+    }
+
+    @media (max-width: $tablet) {
+      .nft-item {
+        width: calc(33% - 24px);
+        min-width: 200px;
+      }
+    }
+
+    @media (max-width: $big-phone) {
+      .nft-item {
+        width: 100%;
+      }
+    }
+  }
+
+  &__title {
+    margin-bottom: rem(30);
+
+    h1 {
+      font-size: $h3-font-size;
+      line-height: $h3-line-height;
+    }
+  }
+
+  &__wr {
+    display: flex;
+    gap: 32px;
+    height: rem(303);
+
+    @media (max-width: $desktop) {
+      flex-wrap: wrap;
+      justify-content: center;
+      height: auto;
+    }
+  }
+}
+
+.nft-item {
+  position: relative;
+  width: 25%;
+  height: rem(303);
+  border-radius: $base-border-radius;
+  background-color: $color-light;
+  overflow: hidden;
+  cursor: pointer;
+  transition: all $transition-time ease;
+
+  @media (max-width: $desktop) {
+    height: auto;
+    width: 50%;
+    max-width: 300px;
+
+    .nft-item__btn {
+      visibility: visible;
+      transform: none;
+      opacity: 1;
+    }
+
+    &:hover {
+      box-shadow: none!important;
+      height: inherit!important;
+    }
+  }
+
+  @media (max-width: $big-phone) {
+    width: 100%;
+  }
+
+  &--simple {
+    height: auto;
+
+    &:hover {
+      height: auto!important;
+    }
+  }
+
+  &:hover {
+    height: rem(367);
+    box-shadow: 0 20px 40px rgba(13, 11, 33, 0.16);
+
+    .nft-item__btn {
+      transform: translateY(0);
+      opacity: 1;
+      visibility: visible;
+    }
+  }
+
+  &__wr {
+    position: relative;
+    padding: 11% 10%;
+    z-index: 2;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    @media (max-width: $big-phone) {
+      padding: 20px 16px;
+    }
+  }
+
+  &__img {
+    width: 100%;
+    max-width: 160px;
+    height: 176px;
+    margin-bottom: 17%;
+    border-radius: $base-border-radius;
+    overflow: hidden;
+
+    @media (max-width: $big-phone) {
+      margin-bottom: 16px;
+    }
+
+    &:after {
+      content: '';
+      padding-top: 100%;
+      float: left;
+    }
+
+    img {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+      overflow: hidden;
+    }
+  }
+
+  &__title {
+    @include GilroySemiboldFont;
+    font-size: $big-font-size;
+    margin-bottom: rem(22);
+    color: $color-blue;
+    text-align: center;
+  }
+
+  &__btn {
+    transform: translateY(-10px);
+    opacity: 0;
+    visibility: hidden;
+    transition: all $transition-time ease;
+  }
+}
+
+.feature-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  width: 25%;
+
+  @media (max-width: $tablet) {
+    width: 40%;
+  }
+
+  @media (max-width: $big-phone) {
+    width: 100%;
+  }
+
+  &__img {
+    width: 64px;
+    height: 64px;
+    margin-bottom: rem(40);
+    font-size: 0;
+
+    img {
+      display: block;
+    }
+  }
+
+  &__title {
+    margin-bottom: 16px;
+    @include GilroySemiboldFont;
+    font-size: $extra-big-font-size;
+    line-height: 1.2;
+  }
+
+  &__text {
+    width: 90%;
+    margin: 0 auto;
+    font-size: $base-font-size;
+    line-height: $base-line-height;
+  }
+}
+
+.tools-wr {
+  justify-content: space-between;
+  gap: 40px;
+
+  &__left {
+    width: 56%;
+    @media (max-width: $tablet) {
+      width: 100%;
+    }
+  }
+
+  &__right {
+    width: 40%;
+
+    @media (max-width: $tablet) {
+      max-width: 600px;
+      margin: 0 auto;
+      width: 100%;
+    }
+  }
+}
+
+.tools-list {
+  margin-bottom: rem(74);
+
+  @media (max-width: $tablet) {
+    margin-bottom: 0;
+  }
+}
+
+.tools-item {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+
+  @media (max-width: $tablet) {
+    min-height: auto;
+    margin-bottom: rem(100);
+    text-align: center;
+  }
+
+  @media (max-width: $big-phone) {
+    margin-bottom: rem(60);
+  }
+
+  &:last-child {
+    margin-bottom: 0;
+  }
+
+  &:first-child {
+    padding-top: 32px;
+  }
+
+  &:last-child {
+    min-height: 45vh;
+    justify-content: flex-start;
+
+    @media (max-width: $tablet) {
+      min-height: auto;
+    }
+  }
+}
+
+.tools-picture {
+  width: 37.8vw;
+  max-width: 591px;
+  margin-top: -125px;
+  position: sticky;
+  top: 15vh;
+
+  @media (max-width: $tablet) {
+    position: relative;
+    width: 80vw;
+    top: 0;
+    max-width: inherit;
+    margin: 0 auto;
+  }
+
+  &:after {
+    content: '';
+    float: left;
+    padding-top: 101.3%;
+  }
+
+  img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    overflow: hidden;
+  }
+}
+
+.tools-btn {
+  margin-top: rem(80);
+}
